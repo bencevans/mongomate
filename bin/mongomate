@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+//
+// Require Deps
+//
+
+var path = require('path');
+var MongoMate = require(path.resolve(__dirname, '../'));
+var MongoClient = require('mongodb').MongoClient;
+
+
+var options = {
+  auth: false
+}
+
+if(process.argv[3] && process.argv[4])
+options.auth = {
+  username: process.argv[3],
+  password: process.argv[4]
+}
+
+//
+// Mongo Connection
+//
+MongoClient.connect(process.argv[2] || 'mongodb://localhost', function (err, client) {
+  if(err) return console.error(err);
+
+  //
+  // Start MongoMate App
+  //
+
+
+  var mongomate = MongoMate(client, options);
+  mongomate.listen(process.env.PORT || 8080, function () {
+    console.log();
+    console.log('  Open your browser to http://localhost:' + process.env.PORT || 8080);
+    console.log();
+    console.log('  To stop MongoMate, press ctrl + c');
+    console.log();
+  });
+
+
+});

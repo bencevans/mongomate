@@ -1,0 +1,18 @@
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size On Disk</th>
+      <th>Empty</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#dbs}}
+    <tr>
+      <td><a href="/db/{{name}}/">{{name}}</a></td>
+      <td name="{{sizeOnDisk}}">{{humanize_size sizeOnDisk}}</td>
+      <td>{{empty}}</td>
+    </tr>
+    {{/dbs}}
+  </tbody>
+</table>
