@@ -10,10 +10,24 @@ var app = express();
 var humanize = require('humanize');
 var hbs = require('hbs');
 
-var Db = require('mongodb').Db
+var mongo = require('mongodb')
+, Db = require('mongodb').Db
 , Connection = require('mongodb').Connection
 , Server = require('mongodb').Server
 , format = require('util').format;
+
+//
+// Open Mongo Connection if mongoClient is a URI
+//
+
+if(typeof mongoClient == 'string') {
+  var mongoURI = mongoClient;
+  mongoClient = 'connecting';
+  mongo.connect(mongoURI, function(err, client) {
+    mongoClient = client;
+  });
+}
+
 
 //
 // View Engine Setup/Helpers
