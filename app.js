@@ -64,6 +64,9 @@ app.set('views', path.resolve(__dirname, './views'));
 app.engine('html', hbs.__express);
 app.use(express['static'](path.resolve(__dirname, './public')));
 app.use(function(req, res, next) {
+
+  res.locals.baseURL = app.path();
+
   req.client = mongoClient;
   req.adminClient = req.client.admin();
 

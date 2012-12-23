@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>MongoMate</title>
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{baseURL}}/css/bootstrap.min.css">
   <style type="text/css">
   body {
     padding-top:60px;
@@ -20,7 +20,7 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="/">MongoMate</a>
+        <a class="brand" href="{{baseURL}}/">MongoMate</a>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="span2">
         <h4>database:</h4>
-        <a class="btn{{#if dbName}} {{else}} disabled{{/if}}"  href="/db/{{dbName}}/">
+        <a class="btn{{#if dbName}} {{else}} disabled{{/if}}"  href="{{baseURL}}/db/{{dbName}}/">
           {{#if dbName}}{{dbName}}{{else}}none{{/if}}
         </a>
         <h4>collection:</h4>
