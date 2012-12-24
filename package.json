@@ -13,7 +13,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
+   "repository": {
+    "type": "git",
+    "url": "git://github.com/bencevans/mongomate.git"
+  },
+  "bugs": {
+    "url": "http://github.com/bencevans/mongomate/issues"
+  },
   "keywords": [
     "mongo",
     "mongodb",
