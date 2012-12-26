@@ -3,6 +3,8 @@
 <head>
   <title>MongoMate</title>
   <link rel="stylesheet" type="text/css" href="{{baseURL}}/css/bootstrap.min.css">
+  <link href="{{mainURL}}/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="{{mainURL}}/js/prettify/prettify.js"></script>
   <style type="text/css">
   body {
     padding-top:60px;
@@ -13,6 +15,11 @@
     text-align:center;
     border-top: 1px solid #eee;
     font-size: 12px;
+  }
+  code {
+    background:none;
+    border:none;
+    font-size:16px;
   }
   </style>
 </head>
@@ -45,5 +52,8 @@
       <p><a href="https://github.com/bencevans/mongomate">MongoMate</a> is an open source project by <a href="http://bensbit.co.uk">Ben Evans</a>.</p>
     </footer>
   </div>
+  <script type="text/javascript">
+  prettyPrint();
+  </script>
 </body>
 </html>
