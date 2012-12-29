@@ -53,7 +53,7 @@ app.use(function(req, res, next) {
   req.adminClient = req.client.admin();
 
 
-  function goToList() {
+  function listDatabases() {
     req.adminClient.listDatabases(function(err, dbs) {
       if(err) return next(err);
       if(dbs.ok !== 1) return res.send(dbs.errmsg);
@@ -65,10 +65,10 @@ app.use(function(req, res, next) {
   if (options && options.auth){
     req.adminClient.authenticate(options.auth.username, options.auth.password, function(err, data) {
       if(err) return next(err);
-      goToList();
+      listDatabases();
     });
   } else {
-    goToList();
+    listDatabases();
   }
 
 });
@@ -77,13 +77,16 @@ app.use(function(req, res, next) {
 // HTTP Routes
 //
 
-app.get('/', function(req, res, next) {
-  res.render('index');
-});
+var routes = {};
+routes.server = require('./routes/server')(app, mongoClient);
+routes.db = require('./routes/db')(app, mongoClient);
+routes.collection = require('./routes/collection')(app, mongoClient);
 
-require('./routes/db')(app, mongoClient);
-require('./routes/collection')(app, mongoClient);
-
+app.get('/', routes.server.server);
+app.get('/db/:db*', routes.db.openConnection);
+app.get('/db/:db*', routes.db.db);
+app.get('/db/:db/collection/:collection*', routes.collection.openConnection);
+app.get('/db/:db/collection/:collection', routes.collection.collection);
 
 return app;
 

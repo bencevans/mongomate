@@ -4,20 +4,20 @@ module.exports = function(app, mongoClient) {
   // Setup Database Client
   //
 
-  app.get('/db/:db/collection/:collection*', function(req, res, next) {
+  var openConnection = function(req, res, next) {
     req.dbClient.collection(req.params.collection, function(err, collectionClient) {
       if(err) return next(err);
       req.collectionClient = collectionClient;
       res.locals.collectionName = collectionClient.collectionName;
       next();
     });
-  });
+  };
 
   //
   // Display Collection Info (Docs)
   //
 
-  app.get('/db/:db/collection/:collection', function(req, res, next) {
+  var collection = function(req, res, next) {
     req.collectionClient.find({}, function(err, docsResponce) {
       if(err) return next(err);
       res.locals.docsResponce = docsResponce;
@@ -36,6 +36,7 @@ module.exports = function(app, mongoClient) {
         res.render('collection');
       });
     });
-  });
+  };
 
+  return {openConnection:openConnection, collection:collection};
 };
