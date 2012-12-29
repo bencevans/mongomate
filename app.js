@@ -5,10 +5,10 @@ module.exports = function(mongoClient, options) {
 //
 
 var path = require('path');
+var fs = require('fs');
 var express = require('express');
-var app = express();
-var humanize = require('humanize');
 var hbs = require('hbs');
+var app = express();
 
 var mongo = require('mongodb')
 , Db = require('mongodb').Db
@@ -33,26 +33,8 @@ if(typeof mongoClient == 'string') {
 // View Engine Setup/Helpers
 //
 
-hbs.registerHelper('humanize_size', function(num) {
-  return humanize.filesize(num, 1024, 0);
-});
-
-hbs.registerHelper('add', function(num1, num2) {
-  return num1 + num2;
-});
-
-hbs.registerHelper('doc_table', function(doc) {
-  var rows = [];
-  rows.push('<th>_id</th><th>' + doc._id + '</th>');
-  for (var key in doc) {
-    if(key !== '_id')
-      rows.push('<th>' + key + '</th><td><code class="prettyprint languague-json">' + JSON.stringify(doc[key], null, 2) + '</code></td>');
-  }
-  return ['<table class="table table=hover table-bordered table-striped">',
-  '<tr>',
-  rows.join('</tr><tr>'),
-  '</tr>',
-  '</table>'].join('');
+fs.readdirSync(path.resolve(__dirname, './views/helpers')).forEach(function(file) {
+  hbs.registerHelper(path.basename(file, '.js'), require(path.resolve(__dirname, './views/helpers/', file)));
 });
 
 //
