@@ -19,6 +19,7 @@
     "type": "git",
     "url": "git://github.com/bencevans/mongomate.git"
   },
+  "bin": "./bin/mongomate",
   "bugs": {
     "url": "http://github.com/bencevans/mongomate/issues"
   },
