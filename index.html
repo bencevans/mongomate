@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Mongomate : Node.js MongoDB Explorer" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Mongomate</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bencevans/mongomate">View on GitHub</a>
+
+          <h1 id="project_title">Mongomate</h1>
+          <h2 id="project_tagline">Node.js MongoDB Explorer</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bencevans/mongomate/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bencevans/mongomate/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>A Standalone or <a href="http://expressjs.com">ExpressJS</a> mountable MongoDB Explorer.</p>
+
+<p><img src="http://cl.ly/image/2m33210D3Z23/Screen%20Shot%202013-01-06%20at%2021.30.30.png" alt="Demo Screenshot"></p>
+
+<h2>Installation</h2>
+
+<h3>Standalone</h3>
+
+<p>Install Globaly from NPM:</p>
+
+<pre><code>npm install -g mongomate
+</code></pre>
+
+<p>Run:</p>
+
+<pre><code>mongomate [mongodb uri] [admin username] [admin password]
+</code></pre>
+
+<p>If <code>[mongodb uri]</code> isn't provided it will default to localhost.</p>
+
+<p>Example:</p>
+
+<pre><code>mongomate mongodb://mongohost.com:2751 user23781g aoiudya87 
+</code></pre>
+
+<h3>Express Mounted</h3>
+
+<pre><code>npm install mongomate
+</code></pre>
+
+<div class="highlight"><pre><span class="c1">// mongoClient can be a mongodb server connection or a mongodb server (no db uri)</span>
+<span class="kd">var</span> <span class="nx">mongoClient</span> <span class="o">=</span> <span class="s1">'mongodb://localhost'</span><span class="p">;</span>
+
+<span class="c1">// Create the MongoMate Instance</span>
+<span class="kd">var</span> <span class="nx">mongomate</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongomate'</span><span class="p">)(</span><span class="nx">mongoClient</span><span class="p">);</span>
+
+<span class="c1">// If you need authentication for the admin client replace the previous line with</span>
+<span class="kd">var</span> <span class="nx">mongomate</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongomate'</span><span class="p">)(</span><span class="nx">mongoClient</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">auth</span> <span class="p">{</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="s1">'ADMIN_USERNAME'</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="s1">'ADMIN_PASSWORD'</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Add this line in your app.configure(function() { ...</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/mongomate'</span><span class="p">,</span> <span class="nx">mongomate</span><span class="p">);</span>
+</pre></div>
+
+<p>Now when you go to <a href="http://yourapp/mongomate">http://yourapp/mongomate</a>, you'll get a MongoMate Interface</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Mongomate maintained by <a href="https://github.com/bencevans">bencevans</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-37461366-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
