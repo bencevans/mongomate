@@ -1,10 +1,10 @@
 # MongoMate
 
-![Demo Screenshot](http://cl.ly/image/2m33210D3Z23/Screen%20Shot%202013-01-06%20at%2021.30.30.png)
-
 Standalone or [ExpressJS](http://expressjs.com) mountable MongoDB Explorer.
 
-## Installtion
+![Demo Screenshot](http://cl.ly/image/2m33210D3Z23/Screen%20Shot%202013-01-06%20at%2021.30.30.png)
+
+## Installation
 
 ### Standalone
 
