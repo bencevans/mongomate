@@ -20,7 +20,7 @@ If `[mongodb uri]` isn't provided it will default to localhost.
 
 Example:
 
-    mongomate mongodb://mongohost.com:2751 bencevans 
+    mongomate mongodb://mongohost.com:2751 user5432 pa55w0rd 
 
 ### Express Mounted
 
