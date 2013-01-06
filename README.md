@@ -1,6 +1,6 @@
 # MongoMate
 
-![Demo Screenshot](http://cl.ly/image/3S2Q1I2a0T0A/Screen%20Shot%202012-12-23%20at%2018.17.03.png)
+![Demo Screenshot](http://cl.ly/image/2m33210D3Z23/Screen%20Shot%202013-01-06%20at%2021.30.30.png)
 
 Standalone or [ExpressJS](http://expressjs.com) mountable MongoDB Explorer.
 
