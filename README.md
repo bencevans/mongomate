@@ -1,4 +1,4 @@
-# MongoMate
+# MongoMate [![Build Status](https://travis-ci.org/bencevans/mongomate.png?branch=master)](https://travis-ci.org/bencevans/mongomate)
 
 Standalone or [ExpressJS](http://expressjs.com) mountable MongoDB Explorer.
 
