@@ -84,10 +84,9 @@ routes.collection = require('./routes/collection')(app, mongoClient);
 
 app.get('/', routes.server.server);
 app.get('/db/:db*', routes.db.openConnection);
-app.get('/db/:db*', routes.db.db);
+app.get('/db/:db', routes.db.db);
 app.get('/db/:db/collection/:collection*', routes.collection.openConnection);
 app.get('/db/:db/collection/:collection', routes.collection.collection);
-
 return app;
 
 };
