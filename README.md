@@ -1,10 +1,10 @@
-# MongoMate
-
-![Demo Screenshot](http://cl.ly/image/3S2Q1I2a0T0A/Screen%20Shot%202012-12-23%20at%2018.17.03.png)
+# MongoMate [![Build Status](https://travis-ci.org/bencevans/mongomate.png?branch=master)](https://travis-ci.org/bencevans/mongomate)
 
 Standalone or [ExpressJS](http://expressjs.com) mountable MongoDB Explorer.
 
-## Installtion
+![Demo Screenshot](http://cl.ly/image/2m33210D3Z23/Screen%20Shot%202013-01-06%20at%2021.30.30.png)
+
+## Installation
 
 ### Standalone
 
@@ -20,7 +20,7 @@ If `[mongodb uri]` isn't provided it will default to localhost.
 
 Example:
 
-    mongomate mongodb://mongohost.com:2751 bencevans 
+    mongomate mongodb://mongohost.com:2751 user5432 pa55w0rd 
 
 ### Express Mounted
 
